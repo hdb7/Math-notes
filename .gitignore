@@ -1,0 +1,6 @@
+#ignore bs
+*.aux
+*.bbl
+*.blg
+*.log
+*.synctex.gz

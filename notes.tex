@@ -1,0 +1,176 @@
+%% ----------------------------------------------------
+%%              NOTES-TEMPLATE
+%% ----------------------------------------------------
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{amsmath}
+\usepackage{amsthm} %for proof
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[autostyle]{csquotes}
+\renewcommand{\baselinestretch}{0.8}
+\setlength{\columnsep}{1cm}
+\usepackage{xcolor} % font coloring
+\usepackage{sectsty}
+%\sectionfont{\color{red}}  % sets colour of sections
+\setlength{\parindent}{-1em}
+%\sectionfont{\color{red}}  % sets colour of sections
+%\subsectionfont{\color{purple}}
+%\subsubsectionfont{\color{blue}}
+
+%% math macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{ex}{Example}
+
+%%% Coloring macros
+\newcommand{\cred}[1]{\textcolor{red}{#1}}
+\newcommand{\cblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\ccyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\cgreen}[1]{\textcolor{green}{#1}}
+\newcommand{\cyellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\cpurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\corange}[1]{\textcolor{orange}{#1}}
+%% custom colors
+\definecolor{astral}{RGB}{46,116,181}
+\definecolor{darkblue}{RGB}{50,76,168}
+\definecolor{darkbrown}{RGB}{99,12,8}
+
+\title{Elementary Number Theory \vspace{0.5em}}
+\author{Hamjak Debbarma}
+\date{\today}
+\linespread{0.5}
+
+\begin{document}
+  \maketitle
+  \section*{Notations}
+  $\Z = \{... -3,-2,-1,0,1,2,3...\}$ \\
+  $\Z^{+} = \{1,2,3...\}$ \\
+  $\Z^{-} = \{... -3,-2,-1\}$ \\
+  $\Z^{0+} = \{0,1,2,3...\}$ \\
+  $\Z^{0-} = \{...-2,-1,0\}$
+  \section{Introduction: Divisibility, Prime, GCD}
+  Let $a,b \in \Z$ and $a>0$ we say $a$ divides $b$, $a|b$ if $b=ac$ for some $c\in \Z$. Here, $a$ is the divisor or factor of $b$ and $b$ is the multiple of $a$.
+  \\ \\
+ \textbf{Note: }
+  \begin{itemize}
+  	\item Sign has no effects: $6|12, -5|53, 9|-81$
+  	\item Divisibility is a statement not an operator like divide $/$
+  	\item Divisibility is mostly deals with Positive Integers.
+  \end{itemize}
+\textbf{Properties of Divisibility}\\
+Let $a,b,c \in \Z$, then
+\begin{itemize}
+	\item If $a|b$ and $a|c$ then $a|b+c$
+	\item If $a|b$ and $b|c$ then $a|c$
+	\item If $a|b$ then $a|mb$ for some integer $m$
+	\item If $a|b$ and $a|c$ then $a|bm+cn$ for some integer $m,n$ 
+\end{itemize}
+
+\begin{defn}[Prime]
+	Let $p>0$ and $p\in \Z^{+}$, $p$ is prime iff the divisor of $p$ is $1$ and $p$.
+\end{defn}
+
+\begin{defn}[Composite]
+	Let $M>1$ which is not prime is composite.
+\end{defn}
+\begin{rem}
+	$0$ and $1$ are neither prime nor composite.
+\end{rem}
+\begin{thm}[Fundamental Theorem of Arithmetic]
+	Any integer greater than $1$ can be written as a unique product of primes. Here, the primes ordering does not matter.
+\end{thm}
+
+\begin{defn}[Common Divisor]
+	The integer $c$ is the common divisor of $a$ and $b$ if $a=cn$ and $b=cm$ for some integer $n,m$ or if $c|a$ and $c|b$.
+\end{defn}
+\begin{defn}[GCD]
+	gcd(a,b) is the largest common divisor of $a$ and $b$, $gcd(a,b)>1$ and by convention $a,b \ne 0$.
+\end{defn}
+\begin{defn}[Co-primes]
+	If $gcd(a,b)=1$ then $a,b$ are relatively prime or coprime though $a,b$ needs not be prime.
+\end{defn}
+
+\begin{thm}[Division]
+	Let $a,b \in \Z$ , $b>0$ then $\exists q,r \in \Z$ s.t $a=bq+r$ where, $0\le r < b$
+\end{thm}
+ 
+\section{Congruences}
+\begin{defn}
+	Let $n$ be fixed positive integer, $a,b \in Z$ are said to be congruent modulo $n$, $a \equiv b \pmod n$ if $n|(a-b)$ i.e, $a-b = nk$ for some $k \in \Z$.
+\end{defn}
+\begin{ex}
+	$n=7$, $3 \equiv 24 \pmod 7$ $\implies 7|(3-24) \implies 7|-21$
+\end{ex}
+\begin{ex}
+ $6 \not \equiv 1 \pmod 3$ $\implies 3 \not |(6-1) $
+\end{ex}
+
+\textbf{Note}
+\begin{itemize}
+	\item Any two integers are congruent modulo $1$, $a\equiv b \pmod 1 \impliedby 1|(a-b)$
+	\item Two integers are congruent modulo $2$ if either both even or both odd.
+\end{itemize}
+
+\begin{lem}	
+	If $n>1$ and $a$ be any integers and $r$ be remainder when $a/n$ then $a \equiv r \pmod n$
+\end{lem}
+\begin{proof}
+	$a/n \implies a=qn+r$ where, $ q,r \in \Z $ and $0\ge r < n$ \\
+	$a-r = qn \implies a \equiv r \pmod n$
+\end{proof}
+
+\begin{cor}
+	If $a \equiv r \pmod n$ then $r = \{0,1,2,\dots n-1\}$
+\end{cor}
+
+\begin{defn}[Complete System of Residue (CSR)]
+	Given $a \in \Z$ let $q$ and $r$ be its quotient and remainder upon division by $n$ i.e, $a = qn+r, 0 \ge r < n$. Then by definition of congruences $a \equiv r \pmod n$ and $r = \{0,1,2,\dots n-1\}$ called the least non negative residue(remainder) modulo $n$. \\
+	In general a collection of $\{a_{1}, a_{2}, \dots, a_{n}\}$ is a \textbf{Complete System of Residue} modulo $n$ if each $a_{i} \equiv r_{i} \pmod n$ i.e, $\{a_{1}, a_{2}, \dots, a_{n}\} \equiv \{0,1,2 \dots n-1\} \pmod n$ and $a_{i} \not \equiv a_{j} \pmod n$
+\end{defn}
+
+\begin{ex}
+	Consider $n=4$ and $S = \{12,11,8,3\}$ does S form CSR modulo $4$.
+\end{ex}
+\begin{proof}[Soln.]
+	$r = \{0,1,2,3\}$ and $12 \equiv 0 \pmod 4$ and $8 \equiv 0 \pmod 4$ implies, $12 \equiv 8 \pmod 4$. So, S does not form CSR.
+\end{proof}
+
+\begin{thm}
+	For arbitrary integers $a$ and $b$, $a \equiv n \pmod n$ iff $a$ and $b$ leaves the same non-negative remainder when divided by $n$. 
+\end{thm}
+\begin{proof}
+	$ a \equiv b \pmod n \implies a - b = nk \implies a = b + nk$ for some $k \in \Z$\\
+	$n|b \implies b = nq + r \implies a = nq+r+nk \implies a = (nq+nk)+r$\\
+	Now, assume $a=nq_{1}+r$ and $b=nq_{2}+r$ then $a-b=nq_{1}+r - nq_{2}-r \implies a-b = n(q_{1}-q_{2}) \implies a\equiv b \pmod n$
+\end{proof}
+
+\begin{thm}
+	Let $n>1$ and $a,b,c,d \in \Z$ then the following properties hold :
+	\begin{itemize}
+		\item $a \equiv a \pmod n$
+		\item if  $a \equiv b \pmod n$ then  $b \equiv a \pmod n$
+		\item if  $a \equiv b \pmod n$ and  $b \equiv c \pmod n$ then  $a \equiv c \pmod n$
+		\item if  $a \equiv b \pmod n$ and  $c \equiv d \pmod n$ then  $a+c \equiv b+d \pmod n$ and  $ac \equiv bd \pmod n$
+		\item  if $a \equiv b \pmod n$ then  $a+c \equiv b+c \pmod n$ and  $ac \equiv bc \pmod n$
+		\item if  $a \equiv b \pmod n$ then  $a^{k} \equiv b^{k} \pmod n$ for any $k \in \Z^{+}$
+	\end{itemize}
+	
+\end{thm}
+\end{document}
