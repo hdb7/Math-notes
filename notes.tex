@@ -107,10 +107,23 @@ Let $a,b,c \in \Z$, then
 	If $gcd(a,b)=1$ then $a,b$ are relatively prime or coprime though $a,b$ needs not be prime.
 \end{defn}
 
+\begin{lem}[B\'ezout's Identity]
+	If $gcd(a,b)=d$ then $ \exists x,y \in \Z$ s.t $ax+by=d$
+\end{lem}
+\begin{lem}
+	if $a=bq+r$ then $gcd(a,b)=gcd(b,r)$
+\end{lem}
+\begin{lem}
+	if $a|c$ and $b|c$ and $gcd(a,b)=1$ then $ab|c$
+\end{lem}
 \begin{thm}[Division]
 	Let $a,b \in \Z$ , $b>0$ then $\exists q,r \in \Z$ s.t $a=bq+r$ where, $0\le r < b$
 \end{thm}
  
+\begin{defn}[Linear Diophantine Eqn]
+	Given $a,b,c \in \N $ the eqn. $ax+by=c$ has a solution for $x,y \in \Z$ iff $gcd(a,b)|c$
+\end{defn} 
+ Note: To solve Diophantine we can used Extended Euclid's Algorithm.
 \section{Congruences}
 \begin{defn}
 	Let $n$ be fixed positive integer, $a,b \in Z$ are said to be congruent modulo $n$, $a \equiv b \pmod n$ if $n|(a-b)$ i.e, $a-b = nk$ for some $k \in \Z$.
@@ -128,11 +141,15 @@ Let $a,b,c \in \Z$, then
 	\item Two integers are congruent modulo $2$ if either both even or both odd.
 \end{itemize}
 
+\begin{defn}[Equivalence Class]
+	For $x \in \Z$ define the equivalence class of $x$ w.r.t $\equiv \pmod n$ by $[x]=\{a\in \Z | a\equiv x \pmod n \}$
+\end{defn}
+\textbf{Fact:} There are exactly $n$ equivalence classes modulo $n$ i.e, $[0],[2],\dots [n-1]$ that is, every integer is in one of those classes.
 \begin{lem}	
-	If $n>1$ and $a$ be any integers and $r$ be remainder when $a/n$ then $a \equiv r \pmod n$
+	If $n>1$ and $a$ be any integers and $r$ be remainder when $a/n$ then $a \equiv r \pmod n$ or $\forall a \in \Z$ $a$ is congruent to exactly one of those least residue modulo $n$.
 \end{lem}
 \begin{proof}
-	$a/n \implies a=qn+r$ where, $ q,r \in \Z $ and $0\ge r < n$ \\
+	$a/n \implies a=qn+r$ where, $ q,r \in \Z $ and $0\le r < n$ \\
 	$a-r = qn \implies a \equiv r \pmod n$
 \end{proof}
 
@@ -163,14 +180,64 @@ Let $a,b,c \in \Z$, then
 
 \begin{thm}
 	Let $n>1$ and $a,b,c,d \in \Z$ then the following properties hold :
-	\begin{itemize}
+	\begin{enumerate}
 		\item $a \equiv a \pmod n$
 		\item if  $a \equiv b \pmod n$ then  $b \equiv a \pmod n$
 		\item if  $a \equiv b \pmod n$ and  $b \equiv c \pmod n$ then  $a \equiv c \pmod n$
 		\item if  $a \equiv b \pmod n$ and  $c \equiv d \pmod n$ then  $a+c \equiv b+d \pmod n$ and  $ac \equiv bd \pmod n$
 		\item  if $a \equiv b \pmod n$ then  $a+c \equiv b+c \pmod n$ and  $ac \equiv bc \pmod n$
 		\item if  $a \equiv b \pmod n$ then  $a^{k} \equiv b^{k} \pmod n$ for any $k \in \Z^{+}$
-	\end{itemize}
-	
+	\end{enumerate}	
 \end{thm}
+
+\begin{proof}
+	($Prop 5$) Using prop$1$ and prop$4$ $a \equiv b \pmod n$ and $ c \equiv c \pmod n$ implies, $a+c \equiv b+c \pmod n$ and $ac \equiv bc \pmod n$ \\
+	($prop 6$) Using prop$4$ we can established the prove.
+\end{proof}
+
+\textbf{Divisibility Test for an Integer}
+\begin{itemize}
+	\item An integer is divisible by $2$ iff it's unit digits is $0,2,4,6,8$
+	\item For by $3$ its digits sum should be divisible by $3$
+	\item For $4$, the no. form by its last digits should be divisible by $4$
+	\item For $5$, last digit should be $0$ or $5$.
+	\item An integer $N$ is divisible by $6$ iff $6|M$, where $M = a_{0}+4a_{1}+\dots +4a_{m}$
+	\item For $8$, the no. formed by last three digits should be divisible by $8$. 
+	\item For by $9$ its digits sum should be divisible by $9$
+	\item For $10$, the last digit should be $0$
+	\item For $11$, $11|N$ iff the altering sum of its digit is divisible by $11$. E.g, $N=639162513 \implies 3-1+5-2+6-1+9-3+6=22$
+\end{itemize}
+
+\section{Linear Congruences}
+\begin{defn}
+	An eqn, of the form $ax\equiv b \pmod n$ is called the Linear congruences.
+\end{defn}
+\begin{lem}
+	$ax \equiv b \pmod n$ has a solution iff $d|b$, where $d=gcd(a,n)$. If $d|b$ then it has $d$ mutually incongruent solution modulo $n$.
+\end{lem}
+\textbf{Note: }
+\begin{enumerate}
+	\item if $x_{1}$ is a soln of $ax \equiv b \pmod n$ then any other $x_{2} \equiv x_{1}  \pmod n$ is congruent solution.
+	\item if $x_{1}$ and $x_{2}$ are both soln and  $x_{1} \not \equiv x_{2}  \pmod n$ then it is called incongruent soln of $ax \equiv b \pmod n$.
+\end{enumerate}
+
+\begin{defn}[Inverse of Modulo $n$]
+Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inverse of modulo $n$. Thus if $a^{-1}$ is the inverse then $aa^{-1} \equiv 1 \pmod n$
+\end{defn}
+
+\textbf{Strategy for solving: $ax \equiv b \pmod n$}
+\begin{enumerate}
+	\item $a$ is invertible modulo $n$ iff $gcd(a,n)=1$, $ax+ny=1$ so, $ax\equiv 1 \pmod n$
+	\item Reduction: if $ca\equiv cb \pmod n \implies a \equiv b \pmod {\frac{n}{gcd(c,n)}}$
+	\item $ax \equiv b \pmod n$ has a soln iff $gcd(a,n)|b$
+	\item if $ax \equiv b \pmod n$ has a soln then there are $gcd(a,n)$ number of soln separated by $\frac{n}{gcd(a,n)}$
+\end{enumerate}
+
+\section{Fermat's Little Theorem}
+\section{Chinese Remainder Theorem}
+\section{Wilson's Theorem}
+\section{Hensel's Lemma}
+\section{Polynomial Congruences}
+\section{Langrage's Polynomial}
+\section{Euler's Totient}
 \end{document}
