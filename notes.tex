@@ -234,8 +234,41 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 \end{enumerate}
 
 \section{Fermat's Little Theorem}
-\section{Chinese Remainder Theorem}
+\begin{thm}
+	Let $p$ be prime and $gcd(a,p)=1$ then $a^{p-1} \equiv 1 \pmod p$
+\end{thm}
+\begin{cor}
+	If $p$ is prime then $a^{p} \equiv a \pmod p$
+\end{cor}
+\begin{proof}
+	From $a^{p-1} \equiv 1 \pmod p$ we multiply by $a$.
+\end{proof}
 \section{Wilson's Theorem}
+\begin{thm}
+	If $p$ is a prime then $(p-1)! \equiv -1 \pmod p$ 
+\end{thm}
+\begin{proof}
+	Consider,
+	\begin{align*}
+	(p-1)! & \equiv 1(2.3.\dots (p-2)) p-1 \pmod p \\
+		& \equiv 1(2.2^{-1}.\dots (p-2)(p-2)^{-2}) p-1 \pmod p \\
+		& \equiv 1.1\dots (p-1) \pmod p \\
+		& \equiv p-1 \pmod p  && \text{($p \equiv 0 \pmod p$)} \\
+		& \equiv -1 \pmod p 
+	\end{align*}
+
+\end{proof}
+
+\begin{lem}
+	If $a^2 \equiv 1 \pmod p$ then $a \equiv 1 \pmod p$ or $a \equiv -1 \pmod p$ 
+\end{lem}
+\begin{proof}
+	Suppose,  $a^2 \equiv 1 \pmod p \implies p|a^2-1 \implies p|(a+1)(a-1) \implies a \equiv 1 \pmod p$ or $a \equiv -1 \pmod p$\\
+	(So, the only integer who are their own inverse $\pmod p$ is $\pm 1 \pmod p$)
+\end{proof}
+
+
+\section{Chinese Remainder Theorem}
 \section{Hensel's Lemma}
 \section{Polynomial Congruences}
 \section{Langrage's Polynomial}
