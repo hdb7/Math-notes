@@ -237,6 +237,22 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 \begin{thm}
 	Let $p$ be prime and $gcd(a,p)=1$ then $a^{p-1} \equiv 1 \pmod p$
 \end{thm}
+\begin{proof}
+	Assume $p$ is prime and $p\not | a$ i.e $gcd(a,p)=1$, every integer on division by $p$ is congruent to one of these $\{1,2,\dots p-1\} \pmod p$. Now, multiply all the residues by $a$ ie, $\{a,2a,\dots (p-1)a\}$.\\ 
+	\textbf{claim: } $\{a,2a,\dots (p-1)a\}$ is just the rearragement of $\{1,2,\dots p-1\}$\\
+	\textit{Case $1$:} None of  $\{a,2a,\dots (p-1)a\}$ is congruent to $0$\\
+	suppose, $ra \equiv 0 \pmod p, 1<r<p-1$ then, $p|ra$ but it is impossible since, $p\not | a$ and $r<p$ .\\
+	\textit{Case $2$:} These are distinct; no two are congruent to each other\\
+	Pick two values: $ra$ and $sa$ where $0<r \not = s <p$\\
+	\textbf{claim:} $ra\equiv sa \pmod p$\\
+	so, $ra-sa=a(r-s)$ by assumption $p\not | a \implies p\not | (r-s)$ since, $r,s<p$ and $r\not = s$\\
+	which means,
+	\begin{align*}
+		\prod_{k=1}^{p-1} ka & \equiv \prod_{k=1}^{p-1} \pmod p \\
+		(p-1)!a^{p-1} & \equiv (p-1)! \pmod p \\
+		a^{p-1} & \equiv 1 \pmod p
+	\end{align*}
+\end{proof}
 \begin{cor}
 	If $p$ is prime then $a^{p} \equiv a \pmod p$
 \end{cor}
@@ -267,10 +283,41 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 	(So, the only integer who are their own inverse $\pmod p$ is $\pm 1 \pmod p$)
 \end{proof}
 
-
 \section{Chinese Remainder Theorem}
-\section{Hensel's Lemma}
-\section{Polynomial Congruences}
-\section{Langrage's Polynomial}
+\begin{thm}
+	Given a pairwise coprime positive integers $n_{1},n_{2},\dots n_{k} $ and arbitrary integers $n_{1},n_{2},\dots n_{k} $ the system of simlutaneous congruences 
+	\begin{align*}
+		x \equiv a_{1} \pmod {n_{1}} \\
+		x \equiv a_{2} \pmod {n_{2}} \\
+		\vdots \\
+		x \equiv a_{k} \pmod {n_{k}} \\
+	\end{align*}
+	has a solution and the solution is unique modulo $N=n_{1}n_{2}\dots n_{k}$
+\end{thm}
+\textbf{Strategy to solve using CRT:}\\
+\begin{enumerate}
+	\item Compute $N=n_{1}n_{2}\dots n_{k}$
+	\item For $i=1,2,\dots k$ find $N_{i} = \frac{N}{n_{i}}$
+	\item Now solve the congruences $N_{i}x_{i} \equiv 1 \pmod {n_{i}}$
+	\item We get the all the solution as $x_{i} \equiv b \pmod {n_{i}}$ where $b \in \Z^{+}$
+	\item Calculate $X = \sum_{k}^{i=1} x_{i}a_{i}N_{i} \pmod N$ is a solution 
+\end{enumerate}
 \section{Euler's Totient}
+\begin{defn}
+	Euler's Totient function (aslo called phi function) counts the number of positive integers less than $n$ that are coprime to $n$. That is, $\phi (n)$ is the no. of $m\in \Z^{+}$ s.t $1\le m < n$ and $gcd(m,n)=1$
+\end{defn}
+\textbf{Properties: }
+\begin{itemize}
+	\item For a prime $p$, $\phi (p)=p-1$
+	\item $\phi (p^r)=p^r-p^{r-1}$
+	\item If $gcd(m,n)=1$ then $\phi(mn)=\phi (m) \phi (n)$
+	\item If $n=p_{1}^{r_{1}}\dots p_{k}^{r_{k}}$ then $\phi (n)=n \left(1 - \frac{1}{p_{1}}\right) \dots \left(1-\frac{1}{p_{k}}\right)$
+\end{itemize}
+\begin{thm}[Euler's Theorem or Euler's Generalization of Fermat's Little Theorem]
+	For $n \in \Z^{+}$ and $a\in \Z$, $gcd(a,n)=1$ we have,
+	$$
+		a^{\phi (n)} \equiv 1 \pmod n
+	$$
+\end{thm}
+
 \end{document}
