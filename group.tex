@@ -1,0 +1,151 @@
+%% ----------------------------------------------------
+%%              NOTES-TEMPLATE
+%% ----------------------------------------------------
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[autostyle]{csquotes}
+\renewcommand{\baselinestretch}{0.8}
+\setlength{\columnsep}{1cm}
+\usepackage{xcolor} % font coloring
+\usepackage{sectsty}
+%\sectionfont{\color{red}}  % sets colour of sections
+\setlength{\parindent}{-1em}
+%\sectionfont{\color{red}}  % sets colour of sections
+%\subsectionfont{\color{purple}}
+%\subsubsectionfont{\color{blue}}
+
+%% math macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{ex}{Example}
+
+%%% Coloring macros
+\newcommand{\cred}[1]{\textcolor{red}{#1}}
+\newcommand{\cblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\ccyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\cgreen}[1]{\textcolor{green}{#1}}
+\newcommand{\cyellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\cpurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\corange}[1]{\textcolor{orange}{#1}}
+%% custom colors
+\definecolor{astral}{RGB}{46,116,181}
+\definecolor{darkblue}{RGB}{50,76,168}
+\definecolor{darkbrown}{RGB}{99,12,8}
+
+\title{Group Theory \vspace{-2em}}
+%\author{Hamjak Debbarma}
+\date{\today}
+\linespread{0.5}
+
+\begin{document}
+  \maketitle
+  
+  \begin{defn}[Binary Operation]
+  	$*: A \to A$
+  \end{defn}
+  
+  \begin{defn}
+  	A non-empty set $S$ w.r.t binary operation $*$ is called an algebraic structures. E.g, $S=\{1,-1\}$ is a structure under $\times$.
+  \end{defn}
+  
+ \begin{defn}
+ 	    Let $(G,*)$ be an algebraic structures with binary operation $*$ then $G$ is called a group if it satisfy the following properties :
+ 	\begin{itemize}
+ 		\item Closure property i.e, $\forall a,b \in G\; a*b\in G$
+ 		\item There exist an identity element $e$ s.t $a*e=e*a=a\; \forall a\in G$
+ 		\item Every element $a\in G$ has an inverse $a^{-1}\in G$ s.t $a*a^{-1}=e$
+ 		\item $*$ is Associative i.e, $\forall a,b,c \in G\; (a*b)*c=a*(b*c)$
+ 	\end{itemize}
+ \end{defn}
+\begin{ex}
+	$(M_{m\times n}(\R), +)$ is a group.
+\end{ex}
+\begin{ex}
+	$G=\{M_{n\times n}(\R) | det(M) \ne 0 \}$ is a non-singular matrix, $(G,\times)$ is a group.
+\end{ex}
+\begin{defn}
+	A group is $G$ is called Commutative or Abelian Group if it has commutative property i.e, $\forall a,b\in G\; a*b=b*a$
+\end{defn}
+\begin{defn}
+	$(G,*)$ is a semigroup if it has - closure and Associativity.
+\end{defn}
+\begin{defn}
+	$(G,*)$ is a monoid if it has - closure, Associativity and Identity element.
+\end{defn}
+
+\begin{defn}
+	Let $(S,*)$ be a structure in which $S$ is non-empty set and $*$ is a binary operation define on $S$. Such structure is called groupoid.
+\end{defn}
+
+\begin{defn}
+	A group $G$ is called a finite group if the no. of elements in $G$ is finite.
+\end{defn}
+\begin{defn}
+	The no. of elements in a group (finite or infinite) is called is called its order, denoted as $o(G)$ or $|G|$
+\end{defn}
+\begin{ex}
+	$G=\{1,-1,i,-i\} \implies o(G)=4$ 
+\end{ex}
+\begin{defn}
+	The order of an element $a \in G$ is the smallest $n \in \Z^+$ s.t $a^n=e$, if $a^n \ne e$ then $a$ has infinite orders, denoted as $o(a)=n$ or $|a|=n$. For $+$ opereration $na=0.$
+\end{defn}
+\begin{ex}
+	$G=\{1,-1,i,-i\}$ for $i \in G \implies o(i)=4 \impliedby i^4=(i^2)^2=(-1)^2=1$
+\end{ex}
+
+\begin{thm}[Cancellation Law]
+	  Let $G$ be a group and $a,b,c\in G$ such that $a*b=a*c \implies b=c$
+\end{thm}
+\begin{cor}
+	A group $G$ has a unique identity element.
+\end{cor}
+\begin{cor}
+	Any element of $G$ has a unique inverse.
+\end{cor}
+\begin{thm} 
+	If $a\in G$ then $(a^{-1})^{-1}=a$ and if $a,b\in G$ then $(ab)^{-1}=b^{-1}a^{-1}$
+\end{thm}
+
+\begin{defn}[Subgroup]
+	Let $(G,*)$ be a group and if $H \subseteq G$ then $H$ is a subgroup of $G$ if $(H,*)$ is a group.
+\end{defn}
+\begin{ex}
+	$2\Z$ is subgroup of $(\Z, +) \implies n\Z \subseteq \Z$
+\end{ex}
+\begin{defn}
+	$g\in G$ is a generator of a group $G$ if $G=\{g^n | n\in \Z\}$
+\end{defn}
+\begin{ex}
+	$1 \in \Z$ is a generator of $(\Z, +)$
+\end{ex}
+
+\begin{defn}
+	A group $G$ is finitely generated if $\exists$ $g_{1},g_{2},\dots g_{k}\in G$ s.t every element of $G$ can be written as $g_{1}^{{\alpha}_{1}} \dots g_{k}^{{\alpha}_{k}} \in G  $ and $\alpha_{1}, \dots \alpha_{k} \in \Z$
+\end{defn}
+\begin{ex}
+\end{ex}	
+\begin{itemize}
+	\item $(\Z, +)$
+	\item $G = \{\frac{a}{b} | a,b \text{ consist of prime} \le r\}$ is finitely generated.
+\end{itemize}
+
+\end{document}
