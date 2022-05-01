@@ -67,11 +67,11 @@
   	$*: A \to A$
   \end{defn}
   
-  \begin{defn}
+  \begin{defn}\normalfont
    A non-empty set $S$ w.r.t binary operation $*$ is called an algebraic structures. E.g, $S=\{1,-1\}$ is a structure under $\times$.
   \end{defn}
   
- \begin{defn}
+ \begin{defn}\normalfont
  	    Let $(G,*)$ be an algebraic structures with binary operation $*$ then $G$ is called a group if it satisfy the following properties :
  	\begin{itemize}
  		\item Closure property i.e, $\forall a,b \in G\; a*b\in G$
@@ -86,30 +86,30 @@
 \begin{ex}
 	$G=\{M_{n\times n}(\R) | det(M) \ne 0 \}$ is a non-singular matrix, $(G,\times)$ is a group.
 \end{ex}
-\begin{defn}
+\begin{defn}\normalfont
 	A group is $G$ is called Commutative or Abelian Group if it has commutative property i.e, $\forall a,b\in G\; a*b=b*a$
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	$(G,*)$ is a semigroup if it has - closure and Associativity.
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	$(G,*)$ is a monoid if it has - closure, Associativity and Identity element.
 \end{defn}
 
-\begin{defn}
+\begin{defn}\normalfont
 	Let $(S,*)$ be a structure in which $S$ is non-empty set and $*$ is a binary operation define on $S$. Such structure is called groupoid.
 \end{defn}
 
-\begin{defn}
+\begin{defn}\normalfont
 	A group $G$ is called a finite group if the no. of elements in $G$ is finite.
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	The no. of elements in a group (finite or infinite) is called is called its order, denoted as $o(G)$ or $|G|$
 \end{defn}
 \begin{ex}
 	$G=\{1,-1,i,-i\} \implies o(G)=4$ 
 \end{ex}
-\begin{defn}
+\begin{defn}\normalfont
 	The order of an element $a \in G$ is the smallest $n \in \Z^+$ s.t $a^n=e$, if $a^n \ne e$ then $a$ has infinite orders, denoted as $o(a)=n$ or $|a|=n$. For $+$ opereration $na=0.$
 \end{defn}
 \begin{ex}
@@ -119,10 +119,10 @@
 \begin{thm}[Cancellation Law]
 	  Let $G$ be a group and $a,b,c\in G$ such that $a*b=a*c \implies b=c$
 \end{thm}
-\begin{cor}
+\begin{cor}\normalfont
 	A group $G$ has a unique identity element.
 \end{cor}
-\begin{cor}
+\begin{cor}\normalfont
 	Any element of $G$ has a unique inverse.
 \end{cor}
 \begin{thm} 
@@ -133,30 +133,30 @@
 
 \section{Subgroups, Cosets and Normal Subgroup}
 
-\begin{defn}[Subgroup]
+\begin{defn}[Subgroup]\normalfont
 	Let $(G,*)$ be a group and if $H \subseteq G$ then $H$ is a subgroup of $G$ if $(H,*)$ is a group. Denoted as $H \le G$
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	The trivial subgroup of any group is the subgroup $\{e\}$ consisting of just the identity element.
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	A proper subgroup of a group G is a subgroup H which is a proper subset of G i.e, $H \ne G$. Denoted as $H < G$
 \end{defn}
-\begin{defn}
+\begin{defn}\normalfont
 	If H is a subgroup of G, then G is sometimes called an overgroup of H.
 \end{defn}
 \begin{ex}
 	$2\Z$ is subgroup of $(\Z, +) \implies n\Z \le \Z$
 \end{ex}
 
-\begin{defn}
+\begin{defn}\normalfont
 	Let $(G,*)$ be a group and $H<G$, and $g \in G$ then -
 	\begin{itemize}
 		\item The left coset of $H$ by $g$ is $gH = \{gh | h \in H\}$
 		\item The right coset of $H$ by $g$ is $Hg = \{hg | h \in H\}$
 	\end{itemize}
 \end{defn}
-\begin{lem}
+\begin{lem}\normalfont
 	Each coset of a subgroup $H$ has the same size as $H$ i.e, $|gH|=|H|=|Hg|$
 \end{lem}
 
@@ -168,7 +168,7 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 \end{align*}
 \end{rem}
 
-\begin{defn}
+\begin{defn}\normalfont
 	The no. of cosets (left or right) of $H$ in $G$ is called the index of $H$ in $G$. Denoted as $[G:H]$. Therefore, we have a counting formula as $$
 		|G| = [G:H] \times |H|
 	$$
@@ -179,7 +179,7 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 \begin{thm}[Lagrange's Theorem]
 	Let $G$ be a finite group and $H \le G$ then $o(H)|o(G)$
 \end{thm}
-\begin{lem}
+\begin{lem}\normalfont
 	The identity element and inverse of a subgroup is same as that of group.
 \end{lem}
 
@@ -190,13 +190,13 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 		\item $a \in H \implies a*a^{-1} \in H$
 	\end{itemize}
 \end{thm}
-\begin{defn}
+\begin{defn} \normalfont
 	Let $H \le G$ then using $H$ we can form the cosets as $H, gH, g_{2}H \dots$ if all these cosets form a group when $g^{-1}Hg \in H$ for any $g\in G$ then $H$ is called the normal subgroup. Denoted as $H \trianglelefteq G$ .
 \end{defn}
-\begin{defn}
+\begin{defn} \normalfont
 	The cosets group is called a Factor or Quotient Group. Denoted as $G/H$
 \end{defn}
-\begin{defn}
+\begin{defn} \normalfont
 	If the only normal subgroups of $G$ are $G$ and $\{e\}$ then $G$ is called a simple group.
 \end{defn}
 
@@ -212,19 +212,102 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 	\end{align*}
 \end{proof}
 \begin{cor}
-	Every subgroup of a cyclic group is also a normal subgroup
+\normalfont	Every subgroup of a cyclic group is also a normal subgroup
 \end{cor}
 %% ------------------------------------------------------------ %%
-
-\section{Cyclic Group}
-\begin{defn}
-	$g\in G$ is a generator of a group $G$ if $G=\{g^n | n\in \Z\}$
+\section{Homomorphism and Isomorphism}
+\begin{defn} \normalfont
+	Let $(G,*)$ and $(H,\bullet)$ be a two group such that $f: G \to H$ is a homomorphism if $\forall a,b \in G$ 
+	$$
+		f(a*b) = f(a) \bullet f(b)
+	$$
 \end{defn}
+\begin{rem}
+	Homomorphism means same shape that is if $G$ is homomorphic to $H$ that means $G$ and $H$ has similar structure.
+\end{rem}
+
+\begin{thm}
+	Let $f: G \to H$ be a group homomorphism and $e_{G}$ and $e_{H}$ be the identities of respective group then $f(e_{G}) = e_{H}$.
+\end{thm}
+\begin{proof}
+	Let $g \in G$ then,
+	\begin{align*}
+		g*e_{G} &= g \\
+		f(g*e_{G}) &= f(g) \\
+		f(g)\bullet f(e_{G}) &= f(g) \\
+		h \bullet f(e_{G}) &= h \\
+		h^{-1} \bullet h \bullet f(e_{G}) &= h^{-1}h \implies f(e_{G}) = e_{H}
+	\end{align*}
+\end{proof}
+
+
+\begin{thm}
+	Let $f: G \to H$ be a group homomorphism and let $g^{-1}$ be the inverse of $g \in G$ and $h^{-1}$ for $h \in H$ then $f(g^{-1}) = h^{-1}$
+\end{thm}
+\begin{proof}
+	Let $g \in G$ then, 
+	\begin{align*}
+		g*g^{-1} & = e_{G} \\
+		f(g*g^{-1}) & = f(e_{G}) \\
+		f(g)\bullet f(g^{-1}) & = e_{H} \\
+		h\bullet f(g^{-1}) & = e_{H} \\
+		h^{-1}\bullet h\bullet f(g^{-1}) & = e_{H} \bullet h^{-1} \\
+		f(g^{-1}) & =  h^{-1}
+	\end{align*}
+\end{proof}
+
+\begin{defn} \normalfont
+	Let $f: G \to H$ be a group homomorphism then the kernal of $f$,
+	\[
+		ker(f) = \{g\in G \:| \: f(g)=e_{H}\}
+	\]
+\end{defn}
+
+\begin{defn}
+\normalfont	If $f: G \to H$ is bijective then it is \textit{isomorphism.}. Written as $G \cong H$
+\end{defn}
+\begin{ex}
+	$\Z \cong \Z_{2}$
+\end{ex}
+\begin{lem}
+	\normalfont If $f: G \to H$ is isomorphism then $f^{-1}: H \to G$ is also an isomorphism
+\end{lem}
+\begin{lem}
+	\normalfont If $G \cong H$ then $G$ is commutative iff $H$ is commutative
+\end{lem}
+\begin{cor}
+	\normalfont If $G \cong H$ then $G$ is cyclic iff $H$ is cyclic
+\end{cor}
+\begin{lem}
+	\normalfont $H \cong (\Z, +)$ where $H =  \{\ 2^n \: | \: n \in \Z \}$
+\end{lem}
+\begin{proof}
+	Define $f(n) = 2^n$ then $f(a+b) = 2^{a+b} \implies 2^a * 2^b = f(a)*f(b)$
+\end{proof}
+
+
+
+%% -------------------------------------------------------------- %%
+\section{Cyclic Group}
+
+\begin{defn}\normalfont
+	Let $G$ be a group, $a \in G$ if all the elements of $G$ are in the form $a^n \in G$ for some $n \in \Z$ (\textit{that is,} $G=\{a^n \: |\: n\in \Z\}$) then $G$ is called a \textit{cyclic group}. $a\in G$ is a generator of a group $G$. Denoted as 
+	\[
+		G = <a> = \{\dots a^{-2},a^{-1},e,a^{1},a^{2}\dots \}
+	\]
+\end{defn}
+
 \begin{ex}
 	$1 \in \Z$ is a generator of $(\Z, +)$
 \end{ex}
 
-\begin{defn}
+\begin{lem}\normalfont
+	If $a$ is the generator of $G$ then $a^{-1}$ is also a generator.
+\end{lem}
+\begin{lem}\normalfont
+	Every cyclic group is Abelian.
+\end{lem}
+\begin{defn}\normalfont
 	A group $G$ is finitely generated if $\exists$ $g_{1},g_{2},\dots g_{k}\in G$ s.t every element of $G$ can be written as $g_{1}^{{\alpha}_{1}} \dots g_{k}^{{\alpha}_{k}} \in G  $ and $\alpha_{1}, \dots \alpha_{k} \in \Z$
 \end{defn}
 \begin{ex}
@@ -251,7 +334,7 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 	$$
 \end{thm}
 
-\section{Homomorphism and Isomorphism}
+
 
 
 \end{document}
