@@ -7,6 +7,7 @@
 \graphicspath{ {./images/} }
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{gensymb}
 \usepackage{mathrsfs}
 \usepackage{multicol}
@@ -31,12 +32,13 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\W}{\mathbb{W}}
 \newtheorem{thm}{Theorem}
-\newtheorem{defn}{Definition}
+\newtheorem*{defn}{Definition}
 \newtheorem{conv}{Convention}
-\newtheorem{rem}{Remark}
-\newtheorem{lem}{Lemma}
-\newtheorem{cor}{Corollary}
+\newtheorem*{rem}{Remark}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{cor}{Corollary}
 \newtheorem{ex}{Example}
+\newtheorem{prop}{Proposition}
 
 %%% Coloring macros
 \newcommand{\cred}[1]{\textcolor{red}{#1}}
@@ -59,12 +61,14 @@
 \begin{document}
   \maketitle
   
+  \section{Groups, Semigroups, Monoids and Groupoid}
+  
   \begin{defn}[Binary Operation]
   	$*: A \to A$
   \end{defn}
   
   \begin{defn}
-  	A non-empty set $S$ w.r.t binary operation $*$ is called an algebraic structures. E.g, $S=\{1,-1\}$ is a structure under $\times$.
+   A non-empty set $S$ w.r.t binary operation $*$ is called an algebraic structures. E.g, $S=\{1,-1\}$ is a structure under $\times$.
   \end{defn}
   
  \begin{defn}
@@ -125,12 +129,94 @@
 	If $a\in G$ then $(a^{-1})^{-1}=a$ and if $a,b\in G$ then $(ab)^{-1}=b^{-1}a^{-1}$
 \end{thm}
 
+%% ------------------------------------------------------------- %%
+
+\section{Subgroups, Cosets and Normal Subgroup}
+
 \begin{defn}[Subgroup]
-	Let $(G,*)$ be a group and if $H \subseteq G$ then $H$ is a subgroup of $G$ if $(H,*)$ is a group.
+	Let $(G,*)$ be a group and if $H \subseteq G$ then $H$ is a subgroup of $G$ if $(H,*)$ is a group. Denoted as $H \le G$
+\end{defn}
+\begin{defn}
+	The trivial subgroup of any group is the subgroup $\{e\}$ consisting of just the identity element.
+\end{defn}
+\begin{defn}
+	A proper subgroup of a group G is a subgroup H which is a proper subset of G i.e, $H \ne G$. Denoted as $H < G$
+\end{defn}
+\begin{defn}
+	If H is a subgroup of G, then G is sometimes called an overgroup of H.
 \end{defn}
 \begin{ex}
-	$2\Z$ is subgroup of $(\Z, +) \implies n\Z \subseteq \Z$
+	$2\Z$ is subgroup of $(\Z, +) \implies n\Z \le \Z$
 \end{ex}
+
+\begin{defn}
+	Let $(G,*)$ be a group and $H<G$, and $g \in G$ then -
+	\begin{itemize}
+		\item The left coset of $H$ by $g$ is $gH = \{gh | h \in H\}$
+		\item The right coset of $H$ by $g$ is $Hg = \{hg | h \in H\}$
+	\end{itemize}
+\end{defn}
+\begin{lem}
+	Each coset of a subgroup $H$ has the same size as $H$ i.e, $|gH|=|H|=|Hg|$
+\end{lem}
+
+\begin{rem}
+Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \cup \dots \cup g_{k}H$ . Therefore,
+\begin{align*}
+		|G| &= |eH| + |gH| + \dots + |g_{k}H| \\
+			&= k|H|
+\end{align*}
+\end{rem}
+
+\begin{defn}
+	The no. of cosets (left or right) of $H$ in $G$ is called the index of $H$ in $G$. Denoted as $[G:H]$. Therefore, we have a counting formula as $$
+		|G| = [G:H] \times |H|
+	$$
+\end{defn}
+\begin{rem}
+	The above serve as a proof of Lagrange's Theorem
+\end{rem}
+\begin{thm}[Lagrange's Theorem]
+	Let $G$ be a finite group and $H \le G$ then $o(H)|o(G)$
+\end{thm}
+\begin{lem}
+	The identity element and inverse of a subgroup is same as that of group.
+\end{lem}
+
+\begin{thm}[Two step subgroup test]
+	Let $H \subseteq G$ , $H$ is a subgroup of $G$ iff -
+	\begin{itemize}
+		\item $a \in H, b\in H \implies a*b \in H$
+		\item $a \in H \implies a*a^{-1} \in H$
+	\end{itemize}
+\end{thm}
+\begin{defn}
+	Let $H \le G$ then using $H$ we can form the cosets as $H, gH, g_{2}H \dots$ if all these cosets form a group when $g^{-1}Hg \in H$ for any $g\in G$ then $H$ is called the normal subgroup. Denoted as $H \trianglelefteq G$ .
+\end{defn}
+\begin{defn}
+	The cosets group is called a Factor or Quotient Group. Denoted as $G/H$
+\end{defn}
+\begin{defn}
+	If the only normal subgroups of $G$ are $G$ and $\{e\}$ then $G$ is called a simple group.
+\end{defn}
+
+\begin{thm}
+	Every subgroup of Abelian group is a normal subgroup
+\end{thm}
+\begin{proof}
+	Let $g\in G$ and $h \in H$ then
+	\begin{align*}
+		g^{-1}hg &= g^{-1}(gh)		&& \text{Since, $G$ is commutative} \\
+			     &= (g^{-1}g)h \\
+			     &= eh \implies h \in H
+	\end{align*}
+\end{proof}
+\begin{cor}
+	Every subgroup of a cyclic group is also a normal subgroup
+\end{cor}
+%% ------------------------------------------------------------ %%
+
+\section{Cyclic Group}
 \begin{defn}
 	$g\in G$ is a generator of a group $G$ if $G=\{g^n | n\in \Z\}$
 \end{defn}
@@ -147,5 +233,25 @@
 	\item $(\Z, +)$
 	\item $G = \{\frac{a}{b} | a,b \text{ consist of prime} \le r\}$ is finitely generated.
 \end{itemize}
+
+
+%%--------------------------------------------------------------------%%
+
+\section{Commutative Group}
+\begin{defn}[Partition of Integers]
+	A multiset of positive integers that add to $n$ is called a partition of $n$. The no.of partitions of $k$ is denoted as $p(k)$.
+\end{defn}
+\begin{ex}
+	$p(3) = 3 \impliedby \{3,1+2,1+1+1\}$ ($1+2$ is same as $2+1$)
+\end{ex}
+\begin{thm}[Fundamental Theorem of Finite Abelian Group]
+	The no. of Abelian groups of order $n$ is the product of no. of partitions of $n_{i}$, where $n_{i}$ is obtained from the prime factorization of $n$ 
+	$$
+		n = p_{1}^{{n}_{1}}. p_{2}^{{n}_{2}}\dots p_{k}^{{n}_{k}}
+	$$
+\end{thm}
+
+\section{Homomorphism and Isomorphism}
+
 
 \end{document}
