@@ -38,7 +38,7 @@
 \newtheorem*{lem}{Lemma}
 \newtheorem*{cor}{Corollary}
 \newtheorem{ex}{Example}
-\newtheorem{prop}{Proposition}
+\newtheorem*{prop}{Proposition}
 
 %%% Coloring macros
 \newcommand{\cred}[1]{\textcolor{red}{#1}}
@@ -193,6 +193,9 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 \begin{defn} \normalfont
 	Let $H \le G$ then using $H$ we can form the cosets as $H, gH, g_{2}H \dots$ if all these cosets form a group when $g^{-1}Hg \in H$ for any $g\in G$ then $H$ is called the normal subgroup. Denoted as $H \trianglelefteq G$ .
 \end{defn}
+\begin{defn}[Alternative]
+	A subgroup $H$ of $G$ is normal subgroup if $gH \: = \: Hg$ for all $g\in G.$
+\end{defn}
 \begin{defn} \normalfont
 	The cosets group is called a Factor or Quotient Group. Denoted as $G/H$
 \end{defn}
@@ -214,6 +217,9 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 \begin{cor}
 \normalfont	Every subgroup of a cyclic group is also a normal subgroup.
 \end{cor}
+\begin{prop}\normalfont
+	If $H<G$ of index $[G:H]=2$ then $H \triangleleft G$
+\end{prop}
 \begin{lem}\normalfont
 	If $H < G$ and $K < G$ then -
 	\begin{itemize}
@@ -363,5 +369,35 @@ Coset divides the finite group $G$ in equals parts that is $G = H \cup g_{1}H \c
 
 \section{Quotient Group, Direct Product}
 
+\begin{defn}\normalfont
+	If $G$ is a group and $H \trianglelefteq G$ then we define \textit{quotient group} $G/H$ (\textit{read as G mod H}) to have its elements as cosets $aH$ for all $a\in G$ such that the binary operation is define as :
+	$$
+		(aH)(bH) \:=\: (ab)H
+	$$
+\end{defn}
+\begin{rem}
+	Quotient group makes the group smaller
+\end{rem}
+
+\begin{defn}\normalfont
+	Let $G_{1}$ and $G_{2}$ be two finite groups (\textit{could be infinite as well}) the direct product is define as 
+	$$
+		G_{1}\times G_{2} \:=\: \{ (a,b)\: |\: a\in G_{1},\: b\in G_{2}\}
+	$$
+	here the group operation is component-wise meaning if $(p,q),\: (r,s) \in G_{1}\times G_{2}$ then $(p,q)*(r,s)\:=\: (pr,qs)$ and the identity elements is $(e_{1},e_{2})$
+\end{defn}
+\begin{rem}
+	Direct product combines the groups to make bigger groups
+\end{rem}
+\begin{ex}
+	$G\:=\: \Z_{3}\times \Z_{5} \times \Z_{6} \implies |G| = 3\times5\times6\:=90$
+\end{ex}
+\begin{ex}
+	$G=(\Z, +)$ and $H=(\{1,-1,-i,i\}, \times)$ then $$G\times H = \{ (x,y)\: |\: x\in \Z,\: y=\pm 1 \:or \pm i \}$$
+\end{ex}
+
+\begin{prop}\normalfont
+	If any $G_{i}$ is non-commutative then the direct product $G$ is also non-commutative and if all $G_{i}$ are commutative that the direct product $G$ is commutative.
+\end{prop}
 
 \end{document}
