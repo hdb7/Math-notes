@@ -88,7 +88,7 @@ a_{ij}= \begin{cases}
 \]\\
 \textbf{Orthogonal Matrix: } $A^TA = AA^T=I$\\
 \textbf{Idempotent Matrix: } $A^2 = A$\\
-\textbf{Idempotent Matrix: } $A^2 = I$\\
+\textbf{Involutary Matrix: } $A^2 = I$\\
 \textbf{Singular Matrix: } $|A| = 0$\\
 \textbf{Non-Singular Matrix: } $|A| \not= 0$\\
 \\
@@ -137,5 +137,79 @@ If $A$ is invertible symmetric then $A^{-1} $ also symmetric
 \begin{thm}\normalfont
 	If $|A|\not= 0 \implies adj(adj(A)) = |A|^{n-2}.A$
 \end{thm}
+
+\begin{defn}\normalfont
+	Determinants are scalar quantities that can be calculated from a square matrix. Denoted as $det(A)$ or $|A|$.
+\end{defn}
+\textbf{Expansion of determinant:} $|A| = a_{ij} + Cofactor \:of \:a_{ij}$\\
+\textbf{Properties of Determinant}
+\begin{itemize}
+	\item Determinant evaluated across any rows/col are same.
+	\item If all elements of row or col are $0$ then the $det(A)=0$
+	\item $|I_n|=I$
+	\item $|A^T|=|A|$
+	\item The interchange of any two rows or cols changes the sign of a determinant without altering its absolute value.
+	\[
+	  \begin{vmatrix}
+	  	a_{11} & a_{12} & a_{13} \\
+	  	a_{21} & a_{22} & a_{23} \\
+	  	a_{31} & a_{32} & a_{33} 
+	  \end{vmatrix}
+	  = -
+	  \begin{vmatrix}
+	  a_{21} & a_{22} & a_{23} \\
+	  a_{11} & a_{12} & a_{13} \\
+	  a_{31} & a_{32} & a_{33} 
+	  \end{vmatrix}	  
+	\]
+	\item If two rows or cols in a det. are same the value of det is $0$
+	\item If the elements of row or col of a det is multiplied by scalar, then the value of a new det is equal to some scalar times the value of original det.
+	\[
+		\begin{vmatrix}
+		ka_{11} & ka_{12} & ka_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} 
+		\end{vmatrix}
+		=k
+			\begin{vmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} 
+		\end{vmatrix}
+	\]
+	\item In a det each elements in any row or col consist of the sum of two terms, then the det can be expressed as sum of two det of same order.
+	\[
+		\begin{vmatrix}
+		a_{11}+x_1 & a_{12} & a_{13} \\
+		a_{21}+x_2 & a_{22} & a_{23} \\
+		a_{31}+x_3 & a_{32} & a_{33} 
+		\end{vmatrix}
+		=
+			\begin{vmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33} 
+		\end{vmatrix}
+		+
+		\begin{vmatrix}
+		x_1 & a_{12} & a_{13} \\
+		x_2 & a_{22} & a_{23} \\
+		x_3 & a_{32} & a_{33} 
+		\end{vmatrix}	
+	\]
+	\item If $ |A| = \begin{vmatrix}
+	a_{1} & a_{2} & a_{3} \\
+	b_{1} & b_{2} & b_{3} \\
+	c_{1} & c_{2} & c_{3} 
+	\end{vmatrix}  $ $ |B| = \begin{vmatrix}
+	b_1+ca_{1} & b_2+ca_{2} & b_3+ca_{3} \\
+	b_{1} & b_{2} & b_{3} \\
+	c_{1} & c_{2} & c_{3} 
+	\end{vmatrix}  $ then $|A| = |B|$
+	\item Det. of a diagonal matrix, triangular(Upper or lower) matrix is product of element of principle diagonal.
+	\item $|A^{-1}| = \frac{1}{|A|}$
+	\item If $A_{n\times n}$ then $|kA| = k^n|A|$
+\end{itemize}
+
 
 \end{document}
