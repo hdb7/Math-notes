@@ -8,6 +8,8 @@
 \usepackage{amsmath,amsthm,amssymb,scrextend}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage{xcolor}
+\usepackage{circledsteps}
 %% math macros
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -148,6 +150,8 @@ If $A$ is invertible symmetric then $A^{-1} $ also symmetric
 	\item If all elements of row or col are $0$ then the $det(A)=0$
 	\item $|I_n|=I$
 	\item $|A^T|=|A|$
+	\item $|AB|=|A||B|=|B||A|$
+	\item $|A^n|=|A|^n$
 	\item The interchange of any two rows or cols changes the sign of a determinant without altering its absolute value.
 	\[
 	  \begin{vmatrix}
@@ -211,5 +215,49 @@ If $A$ is invertible symmetric then $A^{-1} $ also symmetric
 	\item If $A_{n\times n}$ then $|kA| = k^n|A|$
 \end{itemize}
 
+\subsection*{Elementary Transformation}
+\begin{itemize}
+	\item Interchange of any rows or cols: $R_{i} \leftrightarrow R_j$ or $C_i \leftrightarrow C_j$
+	\item Multiplication of $i^{th}$ row or col by $k\not=0$: $R_{i} \leftrightarrow kR_j$or $C_i \leftrightarrow kC_j$
+	\item Addition of $k$ times the $j^{th}$ row or col to the $i^{th}$ row or col : $R_{i} \leftrightarrow R_i+ kR_j$or $C_i \leftrightarrow C_i + kC_j$
+\end{itemize}
+
+\textbf{Fact: }\textit{Trace of matrix is the sum of diagonal element} i.e for $A_{n\times n} \: \sum_{i=1}^{n} diag[a_i]$
+
+\subsection*{Echelon Form of a Matrix}
+\begin{itemize}
+	\item Any rows of all zeroes are below any other non-zero rows (\textit{not always the case})
+	\item Each leading entry of a row is in column to the right of leading entry of the row above it.
+	\item All entries in a col below a leading entry are zeroes.
+\end{itemize}
+\[
+	A = \begin{pmatrix}
+	\Circled[outer color=cyan]{3} & 2 & 0 & 7 & 9\\
+	0 & \Circled[outer color=cyan]4 & 5 & 10 & 0\\
+	0 & 0 & 0 & \Circled[outer color=cyan]{-4} & 1\\
+	0 & 0 & 0 & 0 &\Circled[outer color=cyan] 6\\
+	0 & 0 & 0 & 0 & 0
+	\end{pmatrix}
+\]
+Here, $	\Circled[outer color=cyan]{a_i}$ is the leading entry
+
+\subsection*{Reduced Echelon Form}
+\begin{itemize}
+	\item Matrix has to be in echelon form
+	\item The leading entry in each non-zero row is $1$
+	\item Each leading $1$ is the only non-zero entry in its column
+\end{itemize}
+
+\[
+		A = \begin{pmatrix}
+	\Circled[outer color=green]{1} & 0 & 3 & 0 & 9\\
+	0 & \Circled[outer color=green]1 & 4 & 0 & -6\\
+	0 & 0 & 0 & \Circled[outer color=green]{1} & 1\\
+	0 & 0 & 0 & 0 & 0\\
+	0 & 0 & 0 & 0 & 0
+	\end{pmatrix}
+\]
+
+\textbf{Fact:} Reduce Echelon Form(REF) is unique but not the Echelon Form
 
 \end{document}
