@@ -260,4 +260,52 @@ Here, $	\Circled[outer color=cyan]{a_i}$ is the leading entry
 
 \textbf{Fact:} Reduce Echelon Form(REF) is unique but not the Echelon Form
 
+\subsection*{System of Linear Equation}
+Consider eqn. $$a_ix+b_iy+c_iz = d_i, \: i \in \N $$
+in matrix form it's represented as $AX=B$, 
+\[
+	\begin{bmatrix}
+	a_{1} & a_{2} & a_{3} \\
+	b_{1} & b_{2} & b_{3} \\
+	c_{1} & c_{2} & c_{3} \\
+	\end{bmatrix}
+	\begin{bmatrix}
+	x \\
+	y \\
+	z
+	\end{bmatrix}
+	= \begin{bmatrix}
+	d_1 \\ d_2 \\ d_3
+	\end{bmatrix}
+\]
+
+\textbf{Consistency of Linear Equation}
+\begin{itemize}
+	\item If $|A| \not= 0$ then the system is consistent and has a unique solution i.e $X = A^{-1}B$
+	\item If $|A| = 0$ then the system has either no solution or have infinite \# solutions.
+\end{itemize}
+
+\textbf{Augmented Matrix Form: } $AX=B \implies [A:B]$
+
+\[
+ \begin{bmatrix}
+	 a_{11} & a_{12} & \dots & a_{1m} &\bigm| & d_1 \\
+	 a_{21} & a_{22} & \dots & a_{2m} &\bigm| & d_2 \\
+	 \vdots & \vdots & \ddots & \vdots&\bigm| & \vdots \\
+     a_{n1} & a_{n2} & \dots & a_{nm} &\bigm| & d_m \\
+ \end{bmatrix}
+\]
+
+\subsection*{Homogeneous System of Equation}
+Equation of the form: $AX=0$ \\
+For Homog. : $[A:0]$ \\
+
+\textbf{Consistency of Homog. System}
+\begin{itemize}
+	\item $X=0$ (Trivial Soln)
+	\item If $\rho (A) = \# unknown\: variable$, unique soln.
+	\item If $\rho (A) < \# unknown \:variable$, infinite soln. implies $det(A)=0$
+\end{itemize}
+
+
 \end{document}
