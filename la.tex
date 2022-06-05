@@ -307,5 +307,34 @@ For Homog. : $[A:0]$ \\
 	\item If $\rho (A) < \# unknown \:variable$, infinite soln. implies $det(A)=0$
 \end{itemize}
 
+\subsection*{Non-Homog. System of Equation}
+Equation of the form: $AX=B, \: B \not=0$ \\
+For Homog. : $[A:B]$ \\
+\textbf{Consistency of Non-Homog. System}
+\begin{itemize}
+	\item If $\rho[A:B] \not= \rho(A)$, No solution.
+	\item If $\rho [A:B] = \rho(A) = \# unknown\: variable$, unique soln.
+	\item If $\rho [A:B] = \rho (A) \not = \# unknown \:variable$, infinite no. of soln.
+\end{itemize}
+
+\subsection*{Eigen Values and Eigen Vector}
+\begin{defn}\normalfont
+	Let $A_{n \times n}$ consider the homog. system of eqn.
+	$$ AX = \lambda X \implies (A-\lambda I)X=0$$
+	where, $I$ is the identity matrix, $\lambda$ is scalar. Then, $\lambda$ is called an \textit{eigen values} and non-zero vector $X$ is \textit{eigen vector}
+\end{defn}
+\begin{defn}\normalfont
+	Polynomial obtained from $|A-\lambda I|=0$ is called the \textit{Characteristics Polynomial} and the roots of polynomial is the \textit{eigen values.}
+\end{defn}
+
+\textbf{Guassian Elimination: } convert augmented matrix to REF and solve the linear system of equation.
+
+\textbf{Method of finding eigen values and eigen vector}
+\begin{itemize}
+	\item Solving the Characteristics polynomial we get the roots as eigen values.
+	\item Now we find the eigen vector for its eigen values by putting $\lambda$ values in $(A-\lambda I)X=0$ and using Gaussian Elimination.
+\end{itemize}
+
+
 
 \end{document}
