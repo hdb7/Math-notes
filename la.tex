@@ -39,6 +39,67 @@
 \rhead{\today}
  
 % \maketitle
+
+\begin{defn}\normalfont
+	Set $F$ with $2$ operation: $\cdot, +$ such that:
+	\begin{itemize}
+		\item $(F, +)$ is a commutative group.
+		\item $(F, \cdot)$ is a commutative group
+		\item $a(b+c) = ab+ac$
+		\item $(b+c)a = ba+ca$
+	\end{itemize}
+\end{defn}
+
+\textbf{Note: } A field is basically a set that consist of all the $4$ operations: $+,/,-,\times$
+
+\begin{defn}\normalfont
+	A vector space $V$ over a field $\R$ is a set on which two operations: vector addition ($+$) and scalar multiplication($\cdot$) are defined such that -
+	\begin{itemize}
+		\item $(V,+)$ forms commutative group
+		\item The operation ($\times$) is define between scalars and vectors such that: 
+		$\forall  a \in \R \;\text{and}\; v \in V \implies av \in V$ 
+		\item $\forall a \in \R \;\text{and}\; v,w \in V \implies a(v+w)=av+aw$
+		\item $\forall a,b \in \R \;\text{and}\; v \in V,\; (a+b)v = av+bv$
+		\item $\forall a,b \in \R \;\text{and}\; v \in V,\; (ab)v = a(bv)$
+		\item Unitary Law: $\exists 1\in \R$ s.t $1 \cdot v = v\; \forall v \in V$
+	\end{itemize}
+$(V, +, \cdot)$ is a vector space
+\end{defn}
+
+\begin{ex}\normalfont
+	$V = P(\R)$ where, $P$ is set of all polynomials in variable $x$ and coefficient from $\R$
+\end{ex}
+
+\begin{ex}\normalfont
+	$V =$ set of all polynomial of degree $n$ does not form a vector space over $\R$
+\end{ex}
+
+\begin{defn}\normalfont
+	The vector in \textbf{Euclidean Space} consist of $n-$tuple of $\R$, $(x_1,x_2,\dots x_n)$, Euclidean Space is used mathemarically represent physical space with notions such as distance, length and angles.
+\end{defn}
+
+\begin{defn} \normalfont
+	If $\R^n$ is a vector space, then $S \subseteq \R^n$ is said to be a subspace of $\R^n (\R)$ if - 
+	\begin{itemize}
+		\item $0 \in S$
+		\item $S$ is closed under vector addition: $x,y \in S \implies x+y \in S$
+		\item $S$ is closed under scalar multiplication: $x \in S, \alpha \in \R \implies \alpha x \in S$
+	\end{itemize}
+\end{defn}
+
+\begin{defn}[Aliter]\normalfont
+	If $\R^n(R)$ a vector space then $S \subseteq \R^n$ is said to be subspace if $S(\R)$
+\end{defn}
+
+\begin{thm}\normalfont
+	Let $W \subseteq \R^n$ then $W$ is a subspace of $\R^n$ iff-
+	\begin{itemize}
+		\item $W$ is non-empty
+		\item For any $a,b \in \R $ and any $\vec{u}, \vec{v} \in W,\; a\vec{u}+b\vec{v} \in W$
+	\end{itemize}
+\end{thm}
+
+
 \begin{defn}\normalfont
 	A matrix represent a collection of numbers in rows and cols.
 \end{defn}
