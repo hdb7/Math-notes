@@ -99,6 +99,46 @@ $(V, +, \cdot)$ is a vector space
 	\end{itemize}
 \end{thm}
 
+\begin{thm}\normalfont
+	The intersection of any non-empty collection of subspace of $\R^n$ is a subspace of $\R^n$.
+\end{thm}
+
+\begin{thm}\normalfont
+	The union of two subspace of $\R^n$ is a subspace of $\R^n$ iff one of them is contained in the other.
+\end{thm}
+
+\begin{defn}\normalfont
+	Let $V(F)$ be a vector space let $S=\{v_1, v_2,\dots v_n\}\; \subseteq V$ then $$L(S) = \{c_1v_1+c_2v_2\dots + c_nv_n \; |\; c_i \in \R, i\in [1,n]\}$$ is a linear span of the set $S$.
+\end{defn}
+
+\begin{thm}\normalfont
+	Let $V(\R)$ is a vector space and let $S \subseteq V$. Then, $L(S)$ subspace of $V$. 
+\end{thm}
+
+\begin{defn}\normalfont
+	$B = \{v_1,v_2 \dots v_n\}$ is a basis of $n-$ dimensional vector space $V$ if-
+	\begin{itemize}
+		\item $\{v_1,v_2 \dots v_n\}$ is linearly independent.
+		\item For any vector $v\in V$ we have, $V = \alpha_1v_1+\alpha_2v_2+\dots +\alpha_nv_n$ where, $\alpha_1,\alpha_2,\dots \alpha_n$ are scalars from the field $\R$.
+	\end{itemize}
+\end{defn}
+\begin{ex}\normalfont
+	If $\R^2(\R)$ then $S=\{(1,0),(0,1)\}$ forms a \textit{basis} because $S$ is linearly independent and if $(a,b) \in \R^2$ then $(a,b)= a(1,0)+b(0,1)$
+\end{ex}
+
+\begin{defn}\normalfont
+	The no. of vector in a \textit{basis} of $V(F)$ is called \textit{dimension} of vector space $V(F)$
+	\begin{itemize}
+		\item Dim of $\R^2(\R)$ is 2
+		\item Dim of $\R^n(\R)$ is n
+		\item Dim of $M_{m \times n}(\R)$ is $m\times n$
+	\end{itemize}
+\end{defn}
+
+\begin{thm}\normalfont
+	Let $V(F)$ be a finite dimensional vector space and let $S_1$ and $S_2$ be two subspace of $V$ then $$ dim(S_1) + dim(S_2) = dim(S_1+S_2)+dim(S_1 \cap S_2) $$
+\end{thm}
+
 
 \begin{defn}\normalfont
 	A matrix represent a collection of numbers in rows and cols.
