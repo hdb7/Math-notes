@@ -1,0 +1,91 @@
+%% ----------------------------------------------------
+%%              NOTES-TEMPLATE
+%% ----------------------------------------------------
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{arrows, arrows.meta}
+\usetikzlibrary{positioning}
+\usepackage[autostyle]{csquotes}
+\renewcommand{\baselinestretch}{0.8}
+\setlength{\columnsep}{1cm}
+\usepackage{xcolor} % font coloring
+\usepackage{sectsty}
+%\sectionfont{\color{red}}  % sets colour of sections
+\setlength{\parindent}{-1em}
+%\sectionfont{\color{red}}  % sets colour of sections
+%\subsectionfont{\color{purple}}
+%\subsubsectionfont{\color{blue}}
+
+%% math macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{ex}{Example}
+
+%%% Coloring macros
+\newcommand{\cred}[1]{\textcolor{red}{#1}}
+\newcommand{\cblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\ccyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\cgreen}[1]{\textcolor{green}{#1}}
+\newcommand{\cyellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\cpurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\corange}[1]{\textcolor{orange}{#1}}
+%% custom colors
+\definecolor{astral}{RGB}{46,116,181}
+\definecolor{darkblue}{RGB}{50,76,168}
+\definecolor{darkbrown}{RGB}{99,12,8}
+
+\title{C Programming and Assembly \vspace{-2em}}
+%\author{Hamjak Debbarma}
+\date{\today}
+\linespread{0.5}
+
+\begin{document}
+  \maketitle
+  
+  \section{Basic overview of $\mu$P}
+  The main purpose of $\mu$P is to execute a program store in a memory.\\
+ \begin{figure}[h]
+ 	\includegraphics[width=8cm]{mp.png}
+ 	\centering
+ \end{figure}
+\\
+\textbf{Address Bus:} logically address $2^N$ addresses where $N$ is the no. of address bits. \\
+\textbf{Control Signal:} RD(Read), WR(Write)
+
+\subsection{Logical Memory Map}
+ Consider $ADDR[0:N-1]$, we have $2^N$ reference location and $DATA[0:k-1]$, $k$ bits of information in each locations. e,g $0,1, \dots 2^N-1$ location and each with $k=8$ bits of data
+
+\subsection{Instruction Cycle}
+\textbf{1. Fetch(F)}\\
+\textbf{2. Decode(D)}\\
+\textbf{3. Execute(E)} \\
+Following cycle: $FI_1DI_1EI_1, FI_2DI_2EI_2 \dots FI_mDI_mEI_m$, where $I$ stands for Instructions \\
+\textbf{For performing FDE what do we need ?} \\
+For \textbf{FETCH: } fetching instructions from memory
+\begin{itemize}
+	\item Need something to store(Instructions)
+	\item Instructions Pointer: \textit{always points to next instructions in the memory}
+\end{itemize}
+For \textbf{EXECUTE} we have following registers:
+
+
+ 
+\end{document}
