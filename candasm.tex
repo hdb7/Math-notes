@@ -17,6 +17,7 @@
 \renewcommand{\baselinestretch}{0.8}
 \setlength{\columnsep}{1cm}
 \usepackage{xcolor} % font coloring
+\usepackage{listings}
 \usepackage{sectsty}
 %\sectionfont{\color{red}}  % sets colour of sections
 \setlength{\parindent}{-1em}
@@ -47,10 +48,30 @@
 \newcommand{\cyellow}[1]{\textcolor{yellow}{#1}}
 \newcommand{\cpurple}[1]{\textcolor{purple}{#1}}
 \newcommand{\corange}[1]{\textcolor{orange}{#1}}
-%% custom colors
-\definecolor{astral}{RGB}{46,116,181}
-\definecolor{darkblue}{RGB}{50,76,168}
-\definecolor{darkbrown}{RGB}{99,12,8}
+
+%% ---Syntax color for Programming language ------
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=C, %% -language
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4
+}
+
+
 
 \title{C Programming and Assembly \vspace{-2em}}
 %\author{Hamjak Debbarma}
@@ -84,8 +105,219 @@ For \textbf{FETCH: } fetching instructions from memory
 	\item Need something to store(Instructions)
 	\item Instructions Pointer: \textit{always points to next instructions in the memory}
 \end{itemize}
-For \textbf{EXECUTE} we have following registers:
+For \textbf{EXECUTE} we have following general purpose registers: \\
+$a) \frac{E| \frac{AH(8bit)|AL(8bit)}{\small{AX(16bit)}}}{EAX(32bit)}$
+$b) \frac{E| \frac{BH(8bit)|BL(8bit)}{\small{BX(16bit)}}}{EBX(32bit)}$
+$c) \frac{E| \frac{CH(8bit)|CL(8bit)}{\small{CX(16bit)}}}{ECX(32bit)}$
+$d) \frac{E| \frac{DH(8bit)|DL(8bit)}{\small{DX(16bit)}}}{EDX(32bit)}$
+\\
+For array/string manipulation at the Hardware level:\\
+1. Source Index(SI) Register: $\frac{E|SI(16bit)}{ESI(32bit)}$\\
+2. Destination Index(DI) Register: $\frac{E|DI(16bit)}{EDI(32bit)}$
+\\
+\subsection{Partitioning of Memory}
+Segmentation of Code, Data, Function in memory\\
+MEMORY \fbox{
+\fbox{CODE}
+\fbox{DATA}
+\fbox{STACK}
+\fbox{EXTRA SEGMENT}
+}
+\\
+Segment register are associated with: 
+\begin{itemize}
+	\item CODE: $E|CS$
+	\item DATA: $E|DS$
+	\item STACK: $E|SS$
+	\item EXTRA SEGMENT: $E|ES$
+\end{itemize}
+
+\subsection{x$86$ Instructions}
+\subsubsection{Data Transfer}
+$1.\; MOV [DEST][SRC]$\\
+Register direct addressing: $MOV AX, BX \;(AX \leftarrow BX)$ \\
+Immediate addressing: $MOV AX, 0\times40 \;(AX \leftarrow 0\times40)$ \\
+Direct addressing: $MOV\; 0\times1320, AX \;(0\times1320 \leftarrow AX)$ \\
+Register indirect addressing: $MOV AX, [BX] \;(AX \leftarrow [BX])$ content of BX is moved to AX \\
+\textbf{WORD-16 bit \& DWORD-32 bit}
+\subsubsection{ALU Instruction}
+$ADD \;AX, BX\; (AX \leftarrow AX+BX)$ \\
+$SUB \;AX, BX\; (AX \leftarrow AX-BX)$ \\
+$MUL \;[REG]$ : for multiplication it takes only one register the other is assume to be the prior register.\\
+\begin{lstlisting}[language=Ant, caption=MUL example]
+MOV AX, 0x4500	;AX <- 0x4500
+MUL BX			; AX <- AX*BX
+\end{lstlisting}
+$INC \; AL|AX|EAX\; (AL\leftarrow AL+1)$\\
+$DEC \; AL|AX|EAX\; (AL\leftarrow AL-1)$ \\
+$CMP \; AX, BX \; (AX-BX)$ the value of this is evaluated using FLAG Register\\
+\textbf{Clearing Register}
+$XOR \; AX, BX \; (AX \leftarrow 0)$
+
+\subsubsection{Stack Operation}
+STACK POINTER (ESP) - Last In First Out (LIFO) Operation\\
+$1.\; PUSH \;AL|AX|EAX\; [ESP \leftarrow ESP -1/2/4]$ \\ 
+$2.\; POP\; AL|AX|EAX\; [ESP \leftarrow ESP + 1/2/4]$  \\ 
+BASE POINTER (EBP) - Random access operation on stack\\
+
+\newpage
+\subsection{Call and Return Instructions}
+\subsubsection{Subroutine (Function in C)}
+CALL: two way branching goes to subroutine then comes back to where it left.\\
+$EIP \leftarrow EIP+N$ where, $N$ is the address of next instructions to be executed.
+\begin{lstlisting}[language=Ant, caption=subroutine example]
+LOC_FUN:	ADD EBX, 0x0002;
+			ADD EAX, 0x0003;
+			SUB ECX, 0x0004;
+			RET
+MAIN:		XOR EBX, EBX;
+			XOR EAX, EAX;
+			XOR ECX, ECX;
+			CALL LOC_FUN; 
+			XOR EBX, EBX;
+			XOR EAX, EAX;
+			XOR ECX, ECX;
+			CALL LOC_FUN; 		
+\end{lstlisting}
+When CALL LOC\textunderscore FUN is executed PUSH EIP is performed on stack and EIP $\leftarrow$ LOC\textunderscore FUN, RET simply pops the top of stack into EIP.
+
+\subsection{Inline Assembly}
+Interoperation between C ans Assembly. Consider the following C code
+\begin{lstlisting}[language=C, caption=Inline Example]
+	void main() {
+		int x=2;
+		x = x + 2;
+		printf("%d", x);
+	}
+\end{lstlisting}
+Say, we want to speed up $x = x + 2$ then we write the assembly version of those segment.
+\begin{lstlisting}[language=C, caption=Inline Example]
+	void main() {
+		int x=2;
+		//x = x + 2;
+		__asm{
+			MOV EAX, x		; EAX <- x
+			ADD EAX, 0x002	; EAX <- EAX+2
+			MOV x, EAX		; x <- EAX
+		}
+		printf("%d", x);	// 4
+	}
+\end{lstlisting}
+
+\subsubsection{Commonly used Data Types in C}
+\begin{itemize}
+	\item BYTE OF DATA: char
+	\item WORD OF DATA: short int or int
+	\item DWORD OF DATA: long int or int
+\end{itemize}
+
+\newpage
+
+\begin{lstlisting}[language=C, caption= repeatative addition]
+
+main() {
+	// z=x*y
+	short int x=2, y=3;
+	int z=0;
+	__asm{
+		XOR EAX, EAX // EAX <- 0
+		MOV ECX, y
+MULT:	ADD EAX, x
+		DEC ECX		// ECX <- ECX-1
+		JNZ MULT // as long as ECX != 0 repeat adding
+		MOV z, EAX // z=x*y
+		
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=C, caption= Optimised vs unoptimised]
+int a,b,c,d;
+int x=10,y=5;
+a=x+y;
+b=a-y;
+c=b*y;
+d=c/y
+//---------- Un Optimised ---------//
+mov x, 0x000a
+mov y, 0x0005
+
+mov eax,x
+add eax,y
+mov a,eax
+
+mov ebx,a
+sub ebx,y
+mov b,ebx
+
+mov eax,b
+imul y
+mov c,eax
+
+mov ebx,c
+idiv y
+mov d,ebx
+
+//------------- Optimised-------//
+mov eax,x
+add eax,y	// eax <- x+y
+mov a,eax
+sub ebx,y	// eax <- a-y
+mov b,ebx
+imul y		// eax <- b*y
+mov c,eax
+idiv y		// eax <- c/y
+mov d,ebx
+\end{lstlisting}
+
+\newpage
+\subsection{Pointer}
+
+\begin{lstlisting}[language=C, caption= pointer arithmetic]
+
+main() {
+	char *pa=0; // mov pa,0x0000
+	char *pb=0;	// mov pb,0x0000
+	/*
+	mov eax,pa
+	add eax,0x0001
+	mov pa,eax
+	*/
+	pa++;		// pa=pa+1
+	/*
+	mov eax,pb
+	add eax,0x0004
+	mov pb,eax
+	*/
+	pb++;		// pb=pb+4
+	
+}
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C, caption= character pointer]
+main () {
+	char *s = "This is all nonsense";
+	int i=0;
+	for(i;s[i]!='\0';i++){}
+}
+//-------------asm optimised----------//
+int i=0;
+int cnt=0;
+__asm {
+	mov ecx,0
+	mov ebx,s
+cm :cmp byte ptr [ebx],0x00
+	jz done
+	inc ecx
+	in ebx
+	jmp cm
+done: mov cnt, ecx
+}
+\end{lstlisting}
 
 
- 
+
+
+
 \end{document}
