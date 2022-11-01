@@ -1,0 +1,190 @@
+%% ----------------------------------------------------
+%%              NOTES-TEMPLATE
+%% ----------------------------------------------------
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[autostyle]{csquotes}
+\renewcommand{\baselinestretch}{0.8}
+\setlength{\columnsep}{1cm}
+\usepackage{xcolor} % font coloring
+\usepackage{sectsty}
+%\sectionfont{\color{red}}  % sets colour of sections
+\setlength{\parindent}{-1em}
+%\sectionfont{\color{red}}  % sets colour of sections
+%\subsectionfont{\color{purple}}
+%\subsubsectionfont{\color{blue}}
+
+%% math macros
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\W}{\mathbb{W}}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{ex}{Example}
+
+%%% Coloring macros
+\newcommand{\cred}[1]{\textcolor{red}{#1}}
+\newcommand{\cblue}[1]{\textcolor{blue}{#1}}
+\newcommand{\ccyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\cgreen}[1]{\textcolor{green}{#1}}
+\newcommand{\cyellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\cpurple}[1]{\textcolor{purple}{#1}}
+\newcommand{\corange}[1]{\textcolor{orange}{#1}}
+%% custom colors
+\definecolor{astral}{RGB}{46,116,181}
+\definecolor{darkblue}{RGB}{50,76,168}
+\definecolor{darkbrown}{RGB}{99,12,8}
+
+\title{Disaster Management\vspace{-2em}}
+%\author{Hamjak Debbarma}
+\date{\today}
+\linespread{0.5}
+
+\begin{document}
+  \maketitle
+  
+\subsection*{Disaster}
+It is derived from Old Italian word \textit{disastro}, which in turn comes from Ancient Greek word \textit{dis} which means \textit{bad} and \textit{aster} means \textit{star}. A disaster is an event that completely disrupts the normal ways of community.
+
+\subsection*{Hazard}  
+A potentially damaging physical events, phenomena or human activity that may cause loss of life or injury, property damage, social and economic disruption or environmental degradation. 
+\\
+\\
+Types of hazards :
+\begin{itemize}
+	\item Natural : Earthquakes, Floods, Tsunami, wildfire, landslides, volcanic eruption.
+	\item Man-made : Industrial, engineering failures, biological hazards, wars and terrorism.
+\end{itemize}
+\subsubsection*{Classification of hazards:} 
+\begin{itemize}
+	\item Sudden onset hazards: Earthquakes, Floods, Tsunami, wildfire, landslides, volcanic eruption.
+	\item Slow onset hazards: Drought, desertification, famine 
+	\item Industrial / technological hazards 
+	\item Wars and civil strife
+	\item Epidemic and pandemic
+\end{itemize}
+
+\subsubsection*{Difference between Disaster and Hazards}
+\begin{center}
+	\begin{tabular}{ p{60mm}|p{60mm} }
+		\hline
+		\textbf{Disaster} &  \textbf{Hazard} \\
+		\hline
+		Disaster is an event which completely disrupts everything & 
+		Hazard is a situation for which there is a threat of life, health, environment etc. \\ 
+		Disaster is the cumulative results of hazard & Hazard is the outcome of disaster \\  
+		Disaster is a sudden effect of natural or man-made cause & Hazard is potentially damaging the physical activity.   
+	\end{tabular}
+\end{center}
+
+\begin{defn}[Volcano]\normalfont
+	The sudden release of magma (hot materials) from the mountain peak through the vent opening from interior parts of earth's surface is called \textit{volcano}.
+\end{defn}
+
+\begin{defn}[Earthquake]\normalfont
+	The violent shaking of earth's crust in irregular way in vertical or horizontal or in an angular ways is called an earthquake. Naturally, it happened due to the techtonics forces caused by the endogenics thermal conditions.
+\end{defn}
+
+\begin{defn}[Cyclone]\normalfont
+	The word \textit{Cyclone} is derived from the Greek word \textit{Cyclos} meaning the coils of a snake. Cyclones are caused by atmospheric disturbances around a low-pressure area distinguished by swift and often destructive air circulation. Cyclones are usually accompanied by violent storms and bad weather. The air circulates inward in an anticlockwise direction in the Northern hemisphere and clockwise in the Southern hemisphere.
+\end{defn}
+Classification of cyclone: 
+\begin{itemize}
+	\item \textbf{Tropical Cyclone} Cyclones that developed the regions between the Tropics of Capricorn and Cancer are called tropical cyclones. Tropical cyclones are large-scale weather systems developing over tropical or subtropical waters, where they get organized into surface wind circulation.
+	\item \textbf{Extra Tropical Cyclone or Temperate Cyclones} occur in temperate zones and high latitude regions, though they are known to originate in the Polar Regions.
+	
+	
+\end{itemize}
+
+  \begin{defn} [Early Warning System]\normalfont
+  	An early warning system can be defined as a set of capacities needed to generate and dissiminate in time for meaningful warning information of possible disaster.
+  \end{defn}
+\subsection*{Multi Hazard Early Warning System}
+It is the warning system that manages and deliver alerting message to the hazard effected areas where community is in risk to mitigate the impacts of hazards. 
+\\ 
+It is noted that in $2022$, United Nations(UN) announced the declaration to ensure every person on earth has to be protected by the \textbf{Early Warning System} within $5$ years. 
+
+\subsubsection*{The four components of early warning system :}
+\begin{itemize}
+	\item Risk knowledge and assessment of risk factors of any comin disaster
+	\item Detecting the hazard or disaster, technical monitoring for evacuation 
+	\item Early warning communication in community and dissemination of warning system .
+	\item Notification and activities in general disaster preparedness and community response capabilities.
+\end{itemize}
+
+
+\subsection*{General preparedness for various type of disaster:}
+\subsubsection*{Flood}
+\textbf{Part-I}\\ \\
+If needed to evacuate: 
+\begin{enumerate}
+	\item Raise all the necessary furniture on bed of a room
+	\item Cover all drain holes to prevent backflow of water
+	\item Turn off power and gas connections
+	\item People should move to higher ground
+	\item Carry the emergency kit
+	\item People should not enter in deep flooded water
+\end{enumerate}
+\textbf{Part-II}\\\\
+When flood likely to hit: 
+\begin{enumerate}
+	\item Keep mobile phone charged
+	\item Always be alert
+	\item Don't ignore the animals to save their lives if possible
+	\item Perepare an emergency kit containing emergency medicines, dry food, drinking water, torch with batteries, candle, match box and first aid items etc.
+	\item Save your valuable items as possible
+\end{enumerate}
+
+\textbf{Part-III}\\ \\
+During the flood: 
+\begin{enumerate}
+	\item Don't take risk in flood water
+	\item Watch your footstep while moving from one place to other place.
+	\item Stay away from electric poles
+	\item Take hygenic food and dry fruits and save drinking water
+	\item Ensure cleanliness in your surrounding area.
+\end{enumerate}
+
+\textbf{Part-IV}\\ \\
+After the flood: 
+\begin{enumerate}
+	\item Protect children from harmful dampness(wetness) and inhygenic environment.
+	\item Consume hygenic food
+	\item Consume safe drinking water
+	\item Use mosquitoes net while sleeping
+	\item Use only clean water for domestic works and in wash rooms.
+\end{enumerate}
+
+\subsubsection*{Earthquake}
+Before the earthquake:
+\begin{enumerate}
+	\item Repair the plaster cracks and other deep cracks in building.
+	\item Follow BIS Code of practice for building structure.
+	\item Heavy objective in house should be kept in lower platform.
+	\item Repair defective electric wiring and connection
+	\item Identify the safe place in indoor and outdoor.
+	\item Know the emergency contact no. of local authority
+\end{enumerate}
+
+
+
+
+
+  
+\end{document}
