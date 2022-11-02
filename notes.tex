@@ -52,8 +52,8 @@
 \definecolor{darkblue}{RGB}{50,76,168}
 \definecolor{darkbrown}{RGB}{99,12,8}
 
-\title{Elementary Number Theory \vspace{0.5em}}
-\author{Hamjak Debbarma}
+\title{Elementary Number Theory \vspace{0.0em}}
+%\author{Hamjak Debbarma}
 \date{\today}
 \linespread{0.5}
 
@@ -83,49 +83,49 @@ Let $a,b,c \in \Z$, then
 	\item If $a|b$ and $a|c$ then $a|bm+cn$ for some integer $m,n$ 
 \end{itemize}
 
-\begin{defn}[Prime]
+\begin{defn}[Prime]\normalfont
 	Let $p>0$ and $p\in \Z^{+}$, $p$ is prime iff the divisor of $p$ is $1$ and $p$.
 \end{defn}
 
-\begin{defn}[Composite]
+\begin{defn}[Composite]\normalfont
 	Let $M>1$ which is not prime is composite.
 \end{defn}
-\begin{rem}
+\begin{rem}\normalfont
 	$0$ and $1$ are neither prime nor composite.
 \end{rem}
-\begin{thm}[Fundamental Theorem of Arithmetic]
+\begin{thm}[Fundamental Theorem of Arithmetic]\normalfont
 	Any integer greater than $1$ can be written as a unique product of primes. Here, the primes ordering does not matter.
 \end{thm}
 
-\begin{defn}[Common Divisor]
+\begin{defn}[Common Divisor]\normalfont
 	The integer $c$ is the common divisor of $a$ and $b$ if $a=cn$ and $b=cm$ for some integer $n,m$ or if $c|a$ and $c|b$.
 \end{defn}
-\begin{defn}[GCD]
+\begin{defn}[GCD]\normalfont
 	gcd(a,b) is the largest common divisor of $a$ and $b$, $gcd(a,b)>1$ and by convention $a,b \ne 0$.
 \end{defn}
-\begin{defn}[Co-primes]
+\begin{defn}[Co-primes]\normalfont
 	If $gcd(a,b)=1$ then $a,b$ are relatively prime or coprime though $a,b$ needs not be prime.
 \end{defn}
 
-\begin{lem}[B\'ezout's Identity]
+\begin{lem}[B\'ezout's Identity]\normalfont
 	If $gcd(a,b)=d$ then $ \exists x,y \in \Z$ s.t $ax+by=d$
 \end{lem}
-\begin{lem}
+\begin{lem}\normalfont
 	if $a=bq+r$ then $gcd(a,b)=gcd(b,r)$
 \end{lem}
-\begin{lem}
+\begin{lem}\normalfont
 	if $a|c$ and $b|c$ and $gcd(a,b)=1$ then $ab|c$
 \end{lem}
-\begin{thm}[Division]
+\begin{thm}[Division]\normalfont
 	Let $a,b \in \Z$ , $b>0$ then $\exists q,r \in \Z$ s.t $a=bq+r$ where, $0\le r < b$
 \end{thm}
  
-\begin{defn}[Linear Diophantine Eqn]
+\begin{defn}[Linear Diophantine Eqn]\normalfont
 	Given $a,b,c \in \N $ the eqn. $ax+by=c$ has a solution for $x,y \in \Z$ iff $gcd(a,b)|c$
 \end{defn} 
  Note: To solve Diophantine we can used Extended Euclid's Algorithm.
 \section{Congruences}
-\begin{defn}
+\begin{defn}\normalfont
 	Let $n$ be fixed positive integer, $a,b \in Z$ are said to be congruent modulo $n$, $a \equiv b \pmod n$ if $n|(a-b)$ i.e, $a-b = nk$ for some $k \in \Z$.
 \end{defn}
 \begin{ex}
@@ -141,11 +141,11 @@ Let $a,b,c \in \Z$, then
 	\item Two integers are congruent modulo $2$ if either both even or both odd.
 \end{itemize}
 
-\begin{defn}[Equivalence Class]
+\begin{defn}[Equivalence Class]\normalfont
 	For $x \in \Z$ define the equivalence class of $x$ w.r.t $\equiv \pmod n$ by $[x]=\{a\in \Z | a\equiv x \pmod n \}$
 \end{defn}
 \textbf{Fact:} There are exactly $n$ equivalence classes modulo $n$ i.e, $[0],[2],\dots [n-1]$ that is, every integer is in one of those classes.
-\begin{lem}	
+\begin{lem}	\normalfont
 	If $n>1$ and $a$ be any integers and $r$ be remainder when $a/n$ then $a \equiv r \pmod n$ or $\forall a \in \Z$ $a$ is congruent to exactly one of those least residue modulo $n$.
 \end{lem}
 \begin{proof}
@@ -153,23 +153,23 @@ Let $a,b,c \in \Z$, then
 	$a-r = qn \implies a \equiv r \pmod n$
 \end{proof}
 
-\begin{cor}
+\begin{cor}\normalfont
 	If $a \equiv r \pmod n$ then $r = \{0,1,2,\dots n-1\}$
 \end{cor}
 
-\begin{defn}[Complete System of Residue (CSR)]
+\begin{defn}[Complete System of Residue (CSR)]\normalfont
 	Given $a \in \Z$ let $q$ and $r$ be its quotient and remainder upon division by $n$ i.e, $a = qn+r, 0 \ge r < n$. Then by definition of congruences $a \equiv r \pmod n$ and $r = \{0,1,2,\dots n-1\}$ called the least non negative residue(remainder) modulo $n$. \\
 	In general a collection of $\{a_{1}, a_{2}, \dots, a_{n}\}$ is a \textbf{Complete System of Residue} modulo $n$ if each $a_{i} \equiv r_{i} \pmod n$ i.e, $\{a_{1}, a_{2}, \dots, a_{n}\} \equiv \{0,1,2 \dots n-1\} \pmod n$ and $a_{i} \not \equiv a_{j} \pmod n$
 \end{defn}
 
-\begin{ex}
+\begin{ex}\normalfont
 	Consider $n=4$ and $S = \{12,11,8,3\}$ does S form CSR modulo $4$.
 \end{ex}
 \begin{proof}[Soln.]
 	$r = \{0,1,2,3\}$ and $12 \equiv 0 \pmod 4$ and $8 \equiv 0 \pmod 4$ implies, $12 \equiv 8 \pmod 4$. So, S does not form CSR.
 \end{proof}
 
-\begin{thm}
+\begin{thm}\normalfont
 	For arbitrary integers $a$ and $b$, $a \equiv n \pmod n$ iff $a$ and $b$ leaves the same non-negative remainder when divided by $n$. 
 \end{thm}
 \begin{proof}
@@ -178,7 +178,7 @@ Let $a,b,c \in \Z$, then
 	Now, assume $a=nq_{1}+r$ and $b=nq_{2}+r$ then $a-b=nq_{1}+r - nq_{2}-r \implies a-b = n(q_{1}-q_{2}) \implies a\equiv b \pmod n$
 \end{proof}
 
-\begin{thm}
+\begin{thm}\normalfont
 	Let $n>1$ and $a,b,c,d \in \Z$ then the following properties hold :
 	\begin{enumerate}
 		\item $a \equiv a \pmod n$
@@ -209,10 +209,10 @@ Let $a,b,c \in \Z$, then
 \end{itemize}
 
 \section{Linear Congruences}
-\begin{defn}
+\begin{defn}\normalfont
 	An eqn, of the form $ax\equiv b \pmod n$ is called the Linear congruences.
 \end{defn}
-\begin{lem}
+\begin{lem}\normalfont
 	$ax \equiv b \pmod n$ has a solution iff $d|b$, where $d=gcd(a,n)$. If $d|b$ then it has $d$ mutually incongruent solution modulo $n$.
 \end{lem}
 \textbf{Note: }
@@ -221,7 +221,7 @@ Let $a,b,c \in \Z$, then
 	\item if $x_{1}$ and $x_{2}$ are both soln and  $x_{1} \not \equiv x_{2}  \pmod n$ then it is called incongruent soln of $ax \equiv b \pmod n$.
 \end{enumerate}
 
-\begin{defn}[Inverse of Modulo $n$]
+\begin{defn}[Inverse of Modulo $n$]\normalfont
 Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inverse of modulo $n$. Thus if $a^{-1}$ is the inverse then $aa^{-1} \equiv 1 \pmod n$
 \end{defn}
 
@@ -234,7 +234,7 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 \end{enumerate}
 
 \section{Fermat's Little Theorem}
-\begin{thm}
+\begin{thm}\normalfont
 	Let $p$ be prime and $gcd(a,p)=1$ then $a^{p-1} \equiv 1 \pmod p$
 \end{thm}
 \begin{proof}
@@ -253,14 +253,14 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 		a^{p-1} & \equiv 1 \pmod p
 	\end{align*}
 \end{proof}
-\begin{cor}
+\begin{cor}\normalfont
 	If $p$ is prime then $a^{p} \equiv a \pmod p$
 \end{cor}
 \begin{proof}
 	From $a^{p-1} \equiv 1 \pmod p$ we multiply by $a$.
 \end{proof}
 \section{Wilson's Theorem}
-\begin{thm}
+\begin{thm}\normalfont
 	If $p$ is a prime then $(p-1)! \equiv -1 \pmod p$ 
 \end{thm}
 \begin{proof}
@@ -275,7 +275,7 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 
 \end{proof}
 
-\begin{lem}
+\begin{lem}\normalfont
 	If $a^2 \equiv 1 \pmod p$ then $a \equiv 1 \pmod p$ or $a \equiv -1 \pmod p$ 
 \end{lem}
 \begin{proof}
@@ -284,7 +284,7 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 \end{proof}
 
 \section{Chinese Remainder Theorem}
-\begin{thm}
+\begin{thm}\normalfont
 	Given a pairwise coprime positive integers $n_{1},n_{2},\dots n_{k} $ and arbitrary integers $n_{1},n_{2},\dots n_{k} $ the system of simlutaneous congruences 
 	\begin{align*}
 		x \equiv a_{1} \pmod {n_{1}} \\
@@ -303,7 +303,7 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 	\item Calculate $X = \sum_{k}^{i=1} x_{i}a_{i}N_{i} \pmod N$ is a solution 
 \end{enumerate}
 \section{Euler's Totient}
-\begin{defn}
+\begin{defn}\normalfont
 	Euler's Totient function (aslo called phi function) counts the number of positive integers less than $n$ that are coprime to $n$. That is, $\phi (n)$ is the no. of $m\in \Z^{+}$ s.t $1\le m < n$ and $gcd(m,n)=1$
 \end{defn}
 \textbf{Properties: }
@@ -313,7 +313,7 @@ Any value of $x$ which is a solution of $ax \equiv 1 \pmod n$ is called the inve
 	\item If $gcd(m,n)=1$ then $\phi(mn)=\phi (m) \phi (n)$
 	\item If $n=p_{1}^{r_{1}}\dots p_{k}^{r_{k}}$ then $\phi (n)=n \left(1 - \frac{1}{p_{1}}\right) \dots \left(1-\frac{1}{p_{k}}\right)$
 \end{itemize}
-\begin{thm}[Euler's Theorem or Euler's Generalization of Fermat's Little Theorem]
+\begin{thm}[Euler's Theorem or Euler's Generalization of Fermat's Little Theorem]\normalfont
 	For $n \in \Z^{+}$ and $a\in \Z$, $gcd(a,n)=1$ we have,
 	$$
 		a^{\phi (n)} \equiv 1 \pmod n
